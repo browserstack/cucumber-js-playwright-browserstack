@@ -1,4 +1,4 @@
-locators = {
+const locators = {
     "sign_in": "#signin",
     "username_input": "#user-name",
     "password_input": "#password",
@@ -17,8 +17,9 @@ locators = {
    }
  
    async clickSignIn() {
-     const element = await page.waitForSelector(locators.sign_in);     
-     await page.click(locators.sign_in);
+    const signInLocator = locators.sign_in;
+     const element = await page.waitForSelector(signInLocator);     
+     await page.click(signInLocator);
    }
 
    async clickProduct() {

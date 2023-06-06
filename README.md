@@ -2,6 +2,8 @@
 
 Cucumber.js is a JavaScript-based open-source framework for web automation testing. It runs on Node.js and latest web browsers. Cucumber.js allows you to write and execute tests in Gherkin - a non-technical and human-readable language.
 
+By default, Cucumber JS will automatically search for Step Definitions in the same folder as the feature files.
+
 This repository provides an example setup for running Playwright tests with Cucumber.js on the BrowserStack cloud platform.
 
 ## Prerequisites
@@ -22,11 +24,6 @@ git clone https://github.com/browserstack/cucumber-js-playwright-browserstack.gi
 
 2. Install the dependencies by navigating to the project directory and running:
 
-Navigate to the `playwright-cucumber-js` directory:
-
-```bash
-cd playwright-cucumber-js
-```
 
 ```bash
 npm install

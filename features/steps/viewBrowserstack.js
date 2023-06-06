@@ -1,7 +1,7 @@
 const { Given, When, Then } = require("@cucumber/cucumber");
-const { HomePage } = require('../page-objects/home-page')
-const { LoginPage } = require('../page-objects/login-page')
-const { CheckoutPage } = require('../page-objects/checkout-page')
+const { HomePage } = require('../../page-objects/home-page')
+const { LoginPage } = require('../../page-objects/login-page')
+const { CheckoutPage } = require('../../page-objects/checkout-page')
 const homePage = new HomePage();
 const loginPage = new LoginPage();
 const checkoutPage = new CheckoutPage();

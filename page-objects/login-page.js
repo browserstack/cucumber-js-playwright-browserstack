@@ -1,4 +1,4 @@
-locators = {
+const locators = {
   "sign_in": "#signin",
   "username_field": "#username",
   "username_input": "//input[@id='react-select-2-input']",
@@ -23,7 +23,7 @@ class LoginPage {
     await page.click(locators.sign_in);
   }
 
-  async submitLoginForm(username, password) {
+  async submitLoginForm(username, password) {    
     const element = await page.waitForSelector(locators.username_field);
     // Click Username field
     await page.click(locators.username_field);
