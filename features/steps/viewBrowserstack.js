@@ -11,6 +11,10 @@ Given("Open BrowserStack Demo website", { timeout: 60 * 1000 }, async function (
   await homePage.verifyHomePageIsDisplayed();
 });
 
+Given("Open local hosted website", { timeout: 60 * 1000 }, async function () {
+  await homePage.navigateToLocalWebsite(); 
+});
+
 Given('I SignIn as {string} with {string} password', async function (username, password) {
   await homePage.clickSignIn();
   await loginPage.submitLoginForm(username, password);

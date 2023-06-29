@@ -4,16 +4,25 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/cucumber-js --exit"
+    "test": "./node_modules/.bin/cucumber-js",
+    "sample-local-test": "npx cucumber-js ./features/view-browserstack-local.feature",
+    "sample-test": "npx cucumber-js ./features/view-browserstack.feature",
+    "test:parallel": "npm-run-all -p test:chrome test:firefox",
+    "parallel-test": "npx cucumber-parallel --features ./features/*.feature --require ./features/steps/viewBrowserstack.js",
+    "test:chrome": "cucumber-js --world-parameters \"{\\\"browserConfigIndex\\\": 0}\"",
+    "test:firefox": "cucumber-js --world-parameters \"{\\\"browserConfigIndex\\\": 1}\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@cucumber/cucumber": "^7.3.2",
     "assert": "^2.0.0",
+    "browserstack-local": "^1.5.3",
+    "cucumber": "^6.0.7",
     "playwright": "1.29.2"
   },
   "devDependencies": {
-    "chai": "^4.3.7"
+    "chai": "^4.3.7",
+    "npm-run-all": "^4.1.5"
   }
 }

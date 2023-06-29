@@ -38,18 +38,21 @@ BROWSERSTACK_ACCESS_KEY=<your-browserstack-access-key>
 
 Replace `<your-browserstack-username>` and `<your-browserstack-access-key>` with your BrowserStack username and access key, which you can obtain from the BrowserStack dashboard.
 
-## Running the Tests
-
-To run the Playwright tests with Cucumber.js on BrowserStack, follow these steps:
-
-1. Update the `setup.js` file to configure the desired browsers, OS, and other capabilities for your test execution.
-2. Run the tests using the following command:
+## Execution
+To run the tests in parallel with different browser configurations, use the following command:
 
 ```bash
-npm run test
+npm run test:parallel
 ```
+This command will execute the Cucumber.js tests in parallel on Chrome and Firefox browsers based on the configurations specified in the features/steps/viewBrowserstack.js file.
 
-The command will execute the test suite defined in the `features` directory using the configurations specified in `browserstack.conf.js`. The test results will be displayed in the console output.
+## Other Available Commands
+```bash
+npm run sample-local-test: Run a sample test using BrowserStack Local testing.
+npm run sample-test: Run a sample test without BrowserStack Local testing.
+npm run test:chrome: Run the tests only on Chrome.
+npm run test:firefox: Run the tests only on Firefox.
+```
 
 ## Reporting
 
