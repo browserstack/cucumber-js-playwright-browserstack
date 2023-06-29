@@ -1,7 +1,5 @@
 Feature: View BrowserStack Demo Site
 
-
-
   Scenario: Verify if User is able to place the Order
     Given Open BrowserStack Demo website
     And I SignIn as "fav_user" with "testingisfun99" password
