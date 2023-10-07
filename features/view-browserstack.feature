@@ -1,5 +1,6 @@
 Feature: View BrowserStack Demo Site
 
+  @chrome
   Scenario: Verify if User is able to place the Order
     Given Open BrowserStack Demo website
     And I SignIn as "fav_user" with "testingisfun99" password
@@ -9,7 +10,7 @@ Feature: View BrowserStack Demo Site
       | Demo      | User     | H.no 123 | Telangana | 500019     |
     Then I should see product has been placed successfully
 
-  @browser:1
+  @playwright-firefox
   Scenario: Verify if User is able to place the Order on Firefox
     Given Open BrowserStack Demo website
     And I SignIn as "fav_user" with "testingisfun99" password

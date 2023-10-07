@@ -11,15 +11,15 @@ const browserConfigs = [
   {
     browserName: 'chrome',
     browserVersion: 'latest',
-    os: 'osx',
-    osVersion: 'big sur',
+    os: 'Windows',
+    osVersion: '10',
     resolution: '1280x1024',
   },
   {
-    browserName: 'playwright-firefox',
+    browserName: 'chrome',
     browserVersion: 'latest',
-    os: 'osx',
-    osVersion: 'big sur',
+    os: 'Windows',
+    osVersion: '11',
     resolution: '1280x1024',
   },
 ];
