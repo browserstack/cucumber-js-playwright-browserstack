@@ -6,7 +6,7 @@
   "scripts": {
     "test": "./node_modules/.bin/cucumber-js",
     "sample-local-test": "npx cucumber-js ./features/view-browserstack-local.feature",
-    "sample-test": "concurrently \"npx cucumber-js ./features/view-browserstack.feature --tags '@chrome'\" \"npx cucumber-js ./features/view-browserstack.feature --tags '@playwright-firefox'\"",
+    "sample-test": "npx cucumber-js ./features/view-browserstack.feature",
     "test:parallel": "npm-run-all -p test:chrome test:firefox",
     "parallel-test": "npx cucumber-parallel --features ./features/*.feature --require ./features/steps/viewBrowserstack.js",
     "test:chrome": "cucumber-js --world-parameters \"{\\\"browserConfigIndex\\\": 0}\"",

@@ -10,8 +10,8 @@ Feature: View BrowserStack Demo Site
       | Demo      | User     | H.no 123 | Telangana | 500019     |
     Then I should see product has been placed successfully
 
-  @playwright-firefox
-  Scenario: Verify if User is able to place the Order on Firefox
+  @edge
+  Scenario: Verify if User is able to place the Order on Edge
     Given Open BrowserStack Demo website
     And I SignIn as "fav_user" with "testingisfun99" password
     When I add iPhone 12 to cart
