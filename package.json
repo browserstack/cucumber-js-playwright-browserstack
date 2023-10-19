@@ -1,0 +1,37 @@
+{
+  "name": "playwright-cucumber-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/cucumber-js",
+    "sample-local-test": "npx cucumber-js ./features/view-browserstack-local.feature",
+    "sample-test": "npx cucumber-js ./features/view-browserstack.feature",
+    "test:parallel": "npm-run-all -p test:chrome test:firefox",
+    "parallel-test": "npx cucumber-parallel --features ./features/*.feature --require ./features/steps/viewBrowserstack.js",
+    "test:chrome": "cucumber-js --world-parameters \"{\\\"browserConfigIndex\\\": 0}\"",
+    "test:firefox": "cucumber-js --world-parameters \"{\\\"browserConfigIndex\\\": 1}\"",
+    "postinstall": "npm update browserstack-node-sdk",
+    "test-browserstack": "browserstack-node-sdk ./node_modules/.bin/cucumber-js",
+    "sample-local-test-browserstack": "npx browserstack-node-sdk cucumber-js ./features/view-browserstack-local.feature",
+    "sample-test-browserstack": "npx browserstack-node-sdk cucumber-js ./features/view-browserstack.feature",
+    "test:chrome-browserstack": "browserstack-node-sdk cucumber-js --world-parameters \"{\\\"browserConfigIndex\\\": 0}\"",
+    "test:firefox-browserstack": "browserstack-node-sdk cucumber-js --world-parameters \"{\\\"browserConfigIndex\\\": 1}\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@cucumber/cucumber": "^7.3.2",
+    "assert": "^2.0.0",
+    "browserstack-local": "^1.5.3",
+    "cucumber": "^6.0.7",
+    "cucumber-parallel": "^2.0.3",
+    "playwright": "1.29.2"
+  },
+  "devDependencies": {
+    "browserstack-node-sdk": "^1.28.0",
+    "chai": "^4.3.7",
+    "concurrently": "^8.2.1",
+    "npm-run-all": "^4.1.5"
+  }
+}
