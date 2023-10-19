@@ -38,20 +38,24 @@ BROWSERSTACK_ACCESS_KEY=<your-browserstack-access-key>
 
 Replace `<your-browserstack-username>` and `<your-browserstack-access-key>` with your BrowserStack username and access key, which you can obtain from the BrowserStack dashboard.
 
+## Browserstack Configuration 
+To view and update the Browser-OS combinations, please refer to the "features/steps/setup.js" file.
+
 ## Execution
 To run the tests in parallel with different browser configurations, use the following command:
 
-```bash
-npm run test:parallel
-```
-This command will execute the Cucumber.js tests in parallel on Chrome and Firefox browsers based on the configurations specified in the features/steps/viewBrowserstack.js file.
+## Running your Tests:
+To run a sample Test, run 
 
-## Other Available Commands
 ```bash
-npm run sample-local-test: Run a sample test using BrowserStack Local testing.
-npm run sample-test: Run a sample test without BrowserStack Local testing.
-npm run test:chrome: Run the tests only on Chrome.
-npm run test:firefox: Run the tests only on Firefox.
+npm run sample-test
+```
+This command will execute the Cucumber.js tests in parallel on Chrome and Edge browsers based on the configurations specified in the "features/steps/setup.js" file.`
+
+## Run Test on Locally hosted Websites
+
+```bash
+npm sample-local-test
 ```
 
 ## Reporting
