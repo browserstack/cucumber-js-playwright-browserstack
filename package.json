@@ -1,0 +1,22 @@
+{
+  "name": "cucumber-js-playwright-browserstack",
+  "version": "0.1.0",
+  "description": "Playwright examples for Cucumber-JS and BrowserStack Automate using the BrowserStack Node SDK",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/browserstack/cucumber-js-playwright-browserstack.git"
+  },
+  "scripts": {
+    "test": "browserstack-node-sdk cucumber-js",
+    "sample-test": "browserstack-node-sdk cucumber-js features/single.feature",
+    "sample-local-test": "browserstack-node-sdk cucumber-js features/local.feature"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^10.0.1",
+    "playwright": "^1.57.0"
+  },
+  "dependencies": {
+    "browserstack-local": "^1.5.5",
+    "browserstack-node-sdk": "latest"
+  }
+}
