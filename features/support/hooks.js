@@ -1,6 +1,6 @@
 'use strict';
 
-const { chromium } = require('playwright');
+const { chromium } = require('@playwright/test');
 const { Before, After } = require('@cucumber/cucumber');
 
 // When run through `browserstack-node-sdk cucumber-js`, the BrowserStack Node

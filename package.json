@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@cucumber/cucumber": "^10.0.1",
-    "playwright": "^1.57.0"
+    "@playwright/test": "^1.57.0"
   },
   "dependencies": {
     "browserstack-local": "^1.5.5",

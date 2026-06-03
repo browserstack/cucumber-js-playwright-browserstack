@@ -7,3 +7,11 @@ log/
 screenshots
 **/.DS_Store
 .vscode/
+.venv
+venv
+__pycache__
+bin/
+obj/
+target/
+*.log
+.pytest_cache
