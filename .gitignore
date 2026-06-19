@@ -1,0 +1,17 @@
+node_modules
+package-lock.json
+.env
+local.log
+browserstack.err
+log/
+screenshots
+**/.DS_Store
+.vscode/
+.venv
+venv
+__pycache__
+bin/
+obj/
+target/
+*.log
+.pytest_cache
