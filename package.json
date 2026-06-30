@@ -1,0 +1,19 @@
+{
+  "name": "cucumber-js-playwright-browserstack",
+  "version": "1.0.0",
+  "description": "Sample showing how to run Cucumber-JS + Playwright tests on BrowserStack using the BrowserStack Node SDK",
+  "main": "index.js",
+  "scripts": {
+    "sample-test": "browserstack-node-sdk cucumber-js --profile sample",
+    "sample-local-test": "browserstack-node-sdk cucumber-js --profile local",
+    "postinstall": "npm update browserstack-node-sdk"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "latest",
+    "browserstack-node-sdk": "latest",
+    "playwright": "latest"
+  }
+}

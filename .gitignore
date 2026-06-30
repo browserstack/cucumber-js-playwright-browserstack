@@ -1,0 +1,7 @@
+node_modules
+test-results
+log/
+package-lock.json
+local.log
+.DS_Store
+browserstack.err
