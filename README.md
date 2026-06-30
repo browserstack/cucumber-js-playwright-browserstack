@@ -6,8 +6,10 @@ This sample shows how to run [Cucumber-JS](https://github.com/cucumber/cucumber-
 
 ## Prerequisites
 
-* [Node.js](https://nodejs.org/) (LTS recommended) and npm
+* [Node.js](https://nodejs.org/) 18, 20, or 22 LTS, and npm (verified on Node 20)
 * A BrowserStack account -- grab your [Username and Access Key](https://www.browserstack.com/accounts/settings)
+
+> **Note on the Cucumber version:** this sample pins `@cucumber/cucumber` to **v11**, which supports Node 18/20/22. Cucumber **v12** (`latest`) requires **Node 22+** (it uses `fs/promises.glob`) and will fail on Node 18/20 with `promises_1.glob is not a function`. Bump to v12 only if you are on Node 22+.
 
 ## Setup
 
