@@ -1,0 +1,65 @@
+# Sanity workflow that verifies the Cucumber-JS + Playwright BrowserStack SDK sample
+# on a clean-network GitHub runner, mirroring browserstack/node-js-playwright-browserstack.
+# Runs the public bstackdemo `sample` profile, then the BrowserStack Local `local`
+# profile against a python http.server harness on port 45454.
+
+name: Cucumber-JS Playwright SDK sanity workflow on workflow_dispatch
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Branch or commit to build (defaults to the triggering ref)'
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  sanity:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: ['20']
+    name: Cucumber-JS Playwright Sample (Node ${{ matrix.node }})
+    env:
+      BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+      BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.ref || github.ref }}
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Strip credential placeholders so env vars take effect
+        # The yml ships with literal YOUR_USERNAME / YOUR_ACCESS_KEY placeholders;
+        # the SDK uses those literal values unless the lines are absent.
+        run: sed -i '/^userName:/d; /^accessKey:/d' browserstack.yml
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run sample test (public bstackdemo)
+        run: npm run sample-test
+
+      - name: Run local test (BrowserStack Local + python http.server harness)
+        run: |
+          set -u
+          mkdir -p "$RUNNER_TEMP/bs-local-harness"
+          cat > "$RUNNER_TEMP/bs-local-harness/index.html" <<'HTML'
+          <!doctype html>
+          <html><head><title>BrowserStack Local Test</title></head>
+          <body>OK</body></html>
+          HTML
+          ( cd "$RUNNER_TEMP/bs-local-harness" && python3 -m http.server 45454 ) &
+          HTTP_PID=$!
+          trap 'kill "$HTTP_PID" 2>/dev/null || true' EXIT
+          sleep 2
+          sed -i 's/^browserstackLocal: false.*/browserstackLocal: true/' browserstack.yml
+          npm run sample-local-test
