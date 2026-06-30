@@ -1,5 +1,5 @@
 const { Before, After, BeforeAll, AfterAll, setDefaultTimeout } = require('@cucumber/cucumber');
-const { chromium } = require('playwright');
+const { chromium } = require('@playwright/test');
 
 // Cucumber steps can take longer than the default 5s on a remote browser.
 setDefaultTimeout(60 * 1000);

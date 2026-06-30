@@ -1,6 +1,6 @@
 # cucumber-js-playwright-browserstack
 
-This sample shows how to run [Cucumber-JS](https://github.com/cucumber/cucumber-js) + [Playwright](https://playwright.dev/) tests on BrowserStack using the [BrowserStack Node SDK](https://www.npmjs.com/package/browserstack-node-sdk). The SDK reads `browserstack.yml`, fans your scenarios out across the platforms listed there, starts and stops BrowserStack Local automatically, and reports test status to the BrowserStack dashboard. Your test code stays plain `playwright` + `@cucumber/cucumber` -- no manual `connect()`, no capabilities in code.
+This sample shows how to run [Cucumber-JS](https://github.com/cucumber/cucumber-js) + [Playwright](https://playwright.dev/) tests on BrowserStack using the [BrowserStack Node SDK](https://www.npmjs.com/package/browserstack-node-sdk). The SDK reads `browserstack.yml`, fans your scenarios out across the platforms listed there, starts and stops BrowserStack Local automatically, and reports test status to the BrowserStack dashboard. Your test code stays plain `@playwright/test` + `@cucumber/cucumber` -- no manual `connect()`, no capabilities in code.
 
 ![BrowserStack Logo](https://d98b8t1nnulk5.cloudfront.net/production/images/layout/logo-header.png?1469004780)
 
