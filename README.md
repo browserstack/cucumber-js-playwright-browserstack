@@ -37,13 +37,28 @@ npm run sample-test
 
 ## Run Local Test (BrowserStack Local)
 
-For apps on `localhost`, a staging host, or behind a firewall, set `browserstackLocal: true` in `browserstack.yml`, then run the `local` profile:
+Use this when the site under test is on `localhost`, a staging host, or behind a firewall. BrowserStack Local opens a secure tunnel and resolves `bs-local.com` back to **your** machine, so the cloud browser can reach a page only you can serve.
 
-```sh
-npm run sample-local-test
-```
+The bundled `local` scenario navigates to `http://bs-local.com:45454/` and asserts the page title contains `BrowserStack Local` — so you must have something serving that page on port `45454` first:
 
-The SDK starts and stops the BrowserStack Local tunnel for you -- no manual binary download or lifecycle management. The scenario points at `http://bs-local.com:45454/`, a hostname BrowserStack Local resolves back to your machine.
+1. Serve a matching page locally (any page whose `<title>` contains "BrowserStack Local" satisfies the scenario):
+
+   ```sh
+   mkdir -p bs-local-site && printf '<!doctype html><title>BrowserStack Local</title><body>OK</body>' > bs-local-site/index.html
+   (cd bs-local-site && python3 -m http.server 45454) &
+   ```
+
+   To test **your own** app instead, serve it on port `45454` (or change the port and the title assertion in `features/step_definitions/local_steps.js`).
+
+2. Set `browserstackLocal: true` in `browserstack.yml`.
+
+3. Run the `local` profile:
+
+   ```sh
+   npm run sample-local-test
+   ```
+
+The SDK starts and stops the BrowserStack Local tunnel for you -- no manual binary download or lifecycle management. The tunnel routes `bs-local.com:45454` to your machine's `localhost:45454`.
 
 ## How the SDK changes things
 
