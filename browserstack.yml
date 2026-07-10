@@ -67,7 +67,7 @@ browserstackLocal: false # <boolean> (Default false). Set to true to run the loc
   # Entire list of arguments available here -> https://www.browserstack.com/docs/automate/selenium/manage-incoming-connections
 
 framework: playwright
-source: cucumber-js-playwright-browserstack:sample-sdk:v1.0
+source: cucumber-js-playwright-browserstack:main:v1.0
 
 # ===================
 # Debugging features
